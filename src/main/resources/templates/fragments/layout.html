@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<header th:fragment="header">
+    <div class="panel panel-default header">
+        <div align="center" class="panel-body">
+            <h1 id="site-name">Poco</h1>
+            <ul class="nav navbar-nav navbar-left">
+                <li><a class="list-recipes-menu" href="http://localhost:8080/listrecipes">All Recipes</a></li>
+                <li><a class="list-recipes-menu" href="http://localhost:8080/index">Home</a></li>
+                <li><a class="list-recipes-menu" href="http://localhost:8080/index">Add Recipe</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li th:if="${session.userId}"><a href="/logout_process" methods="GET"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                <li th:unless="${session.userId}" class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                    <div class="dropdown-menu">
+                        <form class="form-horizontal" action="/login_process" method="post" accept-charset="UTF-8">
+                            <input id="sp_uname" class="form-control login" type="text" name="username" placeholder="Username.." />
+                            <input id="sp_pass" class="form-control login" type="password" name="password" placeholder="Password.."/>
+                            <input class="btn btn-primary" type="submit" name="submit" value="login" />
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+<footer th:fragment="footer">
+    <div class="panel panel-default footer">
+        <div align="center" class="panel-body">
+            &copy; 2018 Happy Four Friends Budapest
+        </div>
+    </div>
+</footer>
+
+<div th:fragment="bg" id="bg">
+    <img src="http://via.placeholder.com/1366x768" th:attr="src='/img/bg5.jpg'" alt="..."/>
+</div>
+
+</body>
+</html>
