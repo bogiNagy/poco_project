@@ -16,6 +16,12 @@ public class Recipe {
     @Column(name = "description")
     private String description;
 
+    public Recipe() {}
+
+    public Recipe(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
     public Long getId() {
         return id;
     }
@@ -40,10 +46,7 @@ public class Recipe {
         this.description = description;
     }
 
-    public Recipe(String title, String description) {
-        this.title = title;
-        this.description = description;
-    }
+
 
     @Override
     public String toString(){
